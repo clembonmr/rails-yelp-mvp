@@ -1,0 +1,17 @@
+<div class="wrapper">
+
+  <h2>Name: <%= @restaurant.name %></h2>
+  <p>Category: <%= @restaurant.category %></p>
+  <p>Address: <%= @restaurant.address %></p>
+  <p>Phone: <%= @restaurant.phone_number %></p>
+
+  <%= link_to 'Home', restaurants_path, :class=>'btn btn-primary' %>
+
+  <h3>Review's</h3>
+  <%= link_to 'Add a review', new_restaurant_review_path(@restaurant.id) %>
+    <% @restaurant.reviews.each do |review| %>
+      <p><%= review.content %>  | Rating: <%= review.rating %></p>
+    <% end %>
+
+
+</div>

@@ -1,0 +1,40 @@
+
+<div class="wrapper">
+  <h1>Restaurants</h1>
+  <div class="container">
+    <div class="row">
+      <% @restaurants.each do |restaurant| %>
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="card">
+            <h4><strong><%= restaurant.name %></strong></h4>
+            <p><%= restaurant.address %></p>
+            <p class="phone"><%= restaurant.phone_number %></p>
+            <p><%= restaurant.category %></p>
+            <p><%= link_to restaurant do %>
+                <i class="fas fa-info-circle show"></i>
+              <% end %>
+            </p>
+            <p><%= link_to edit_restaurant_path(restaurant) do %>
+                <i class="far fa-edit edit"></i>
+              <% end %>
+            </p>
+            <p><%= link_to restaurant, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <i class="fas fa-trash-alt bin"></i>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="card big">
+          <p><%= link_to new_restaurant_path do %>
+              <i class="fas fa-plus"></i>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
